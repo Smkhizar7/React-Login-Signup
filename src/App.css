@@ -1,0 +1,57 @@
+/* body{
+  background-image: url(./assests/images/hero-bg.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+.Light{
+  background-color: #d2c8c878;
+  color: black;
+  /* text-align: center; */
+}
+.Dark{
+color: white;
+background-color: #18191a;
+/* text-align: center; */
+}
+.login-input {
+  margin: 20px 10px;
+}
+button.btn {
+  width: 100px;
+  height: 35px;
+  color: black;
+  background: #00ff4e;
+  font-weight: 900;
+  border-radius: 10px;
+  margin: 15px;
+}
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-8.css-12dpnmv-MuiGrid-root {
+    padding: 30px;
+    margin: 10px;
+    box-shadow: 2px 2px 4px 0px;
+    background-color: #fff;
+    color: black;
+}
+
+.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.login-input.css-wb57ya-MuiFormControl-root-MuiTextField-root {
+    margin-top: 20px;
+}
+.Footer {
+  margin-top:10px;
+  height: 100px;
+  background-color: #232425;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Footer p {
+  align-self: flex-end;
+  margin: 10px;
+  font-weight: 700;
+  font-size: small;
+}
