@@ -1,4 +1,5 @@
 import './Css/index.css';
+
 function Post({profile,name,date,text,pic,likes,comments,shares,light}) {
     return <div className={light?"post LightColor":"post DarkColor"} id="post" >
         <img alt={name} src={profile} className="profile" align="left" />
@@ -18,7 +19,7 @@ function Post({profile,name,date,text,pic,likes,comments,shares,light}) {
             </span>
         </p>
         <p className="r2" >
-            <button className="btn1" > Like </button>
+            <button className="btn1" >Like</button>
             <button className="btn2" > Comment </button>
             <button className="btn3" > Share </button>
         </p>

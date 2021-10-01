@@ -12,7 +12,8 @@
 }
 .Dark{
 color: white;
-background-color: #18191a;
+/* background-color: #18191a; */
+background-color: #2d2d2d;
 /* text-align: center; */
 }
 .login-input {
@@ -21,37 +22,51 @@ background-color: #18191a;
 button.btn {
   width: 100px;
   height: 35px;
-  color: black;
-  background: #00ff4e;
   font-weight: 900;
   border-radius: 10px;
   margin: 15px;
+  border: 0;
+  background-color: #6b6b6b;
 }
-.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-8.css-12dpnmv-MuiGrid-root {
-    padding: 30px;
-    margin: 10px;
-    box-shadow: 2px 2px 4px 0px;
-    background-color: #fff;
-    color: black;
+button.btn:hover {
+  background: #8e8d8d;
+  text-decoration: none;
 }
 
-.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.login-input.css-wb57ya-MuiFormControl-root-MuiTextField-root {
-    margin-top: 20px;
+button.btn:active {
+  background: #545454;
 }
-.Footer {
-  margin-top:10px;
-  height: 100px;
-  background-color: #232425;
+.box {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  color: white;
   justify-content: space-evenly;
+  width: 50vw;
+  min-width: 250px;
+  box-shadow: 2px 2px 10px 1px;
   align-items: center;
+  padding: 20px;
+  color: black;
+  background: white;
+  margin: 20px auto;
+  border-radius: 20px;
 }
-.Footer p {
-  align-self: flex-end;
-  margin: 10px;
-  font-weight: 700;
-  font-size: small;
+.box div {margin: 5px auto;}
+
+button.link-btn {
+  color: inherit;
+  font-weight: 900;
+  background: 0;
+  margin: 5px;
+  border: 0;
+  padding: 8px;
+  font-size: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.link-btn:hover {
+  text-decoration: none;
+  background-color: grey;
+  border-radius: 10px;
 }

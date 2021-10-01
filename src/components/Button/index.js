@@ -1,7 +1,14 @@
 import './Css/index.css';
-function Button({onClick,className,children}){
+function Button({onClick,className,children,disabled,type}){
     return (
-        <button onClick={onClick} className={className} >{children}</button>
+        <button 
+        onClick={onClick} 
+        type={type} 
+        disabled={disabled} 
+        className={className} 
+        >
+            {children}
+        </button>
     );
 }
 export default Button;

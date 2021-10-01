@@ -10,7 +10,7 @@ img.profilePic {
     display: block;
     transform: translate(0px, -50%);
     margin: 0px auto;
-    border: 5px solid #24253a;
+    border: 5px solid dodgerblue;
 }
 
 hr {border: 1px solid grey;}

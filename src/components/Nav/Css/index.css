@@ -14,13 +14,13 @@
 }
 .Nav-Dark{
     color: white;
-    background-color: #0e0e0e;
+    background-color: #010101;
 }
 button.icon-btn {
     width: 35px;
     height: 35px;
     border-radius: 100%;
-    padding: 6px;
+    padding: 4px;
     color: inherit;
     background:0;
     border: 0;
@@ -38,6 +38,7 @@ button.icon-btn:hover {
 }
 
 .link:hover {
+    color:inherit;
     background-color: grey;
     border-radius: 10px;
     text-decoration: none;

@@ -1,0 +1,7 @@
+.Chat {
+    padding: 0 !important;
+}
+
+.Chat-content {
+    min-height: 75vh;
+}
