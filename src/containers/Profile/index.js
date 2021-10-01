@@ -1,26 +1,19 @@
 import './Css/index.css';
 import profilePic from '../../assests/images/men-avatar.jpg';
 import coverPic from '../../assests/images/bg.jpg';
-import { useHistory } from 'react-router-dom';
-import {Nav,Post,Footer} from '../../components';
+import {ToggleColorMode,Post,Footer} from '../../components';
 import { useEffect, useState } from 'react';
 import pic1 from '../../assests/images/1.jpg';
 import { auth,signOut,db,doc,getDoc } from "../../config/Firebase";
 function Profile(){
     const [name,setName] = useState("Loading...");
-    const [light,setLight] = useState(true);
-    // const [isLogin,setIsLogin] = useState(true);
-    let history = useHistory();
+    const [mode, setMode] = useState('light');
     const user = auth.currentUser;
     function UserSignOut(){
         signOut(auth).then(() => {
-            // Sign-out successful.
-            // setIsLogin(false);
             console.log("Sign out successfully.");
-            history.push("/login");
             }).catch((error) => {
             console.log("Error in Sign out.",error);
-            // An error happened.
             });
     }
     useEffect(()=>{
@@ -41,8 +34,8 @@ function Profile(){
         }
     },[user])
     return (
-        <div className={light?"Light Profile":"Dark Profile"} >
-            <Nav onClick={()=>setLight(!light)} light={light} logout={()=>UserSignOut()} />
+        <div className={mode==='light'?"Light Profile":"Dark Profile"} >
+            <ToggleColorMode auth={user} mode={mode} setMode={setMode} title="Chat" logout={UserSignOut} />
             <div className="header">
                 <img src={coverPic} alt="Cover" className="bgPic" />
                 <img src={profilePic} alt="Profile" className="profilePic" />
@@ -52,9 +45,9 @@ function Profile(){
                 </div>
             </div>
             <div className="body">
-                <Post light={light} profile={profilePic} name={name} date="5 Jan 2021" text="First Post" pic={pic1} likes="400" comments="918" shares="50" />
-                <Post light={light} profile={profilePic} name={name} date="18 Feb 2021" text="First Post" pic={pic1} likes="2M" comments="241" shares="250" />
-                <Post light={light} profile={profilePic} name={name} date="20 May 2021" text="Fifth Post" pic={pic1} likes="10K" comments="2650" shares="5000" />
+                <Post light={mode==='light'} profile={profilePic} name={name} date="5 Jan 2021" text="First Post" pic={pic1} likes="400" comments="918" shares="50" />
+                <Post light={mode==='light'} profile={profilePic} name={name} date="18 Feb 2021" text="First Post" pic={pic1} likes="2M" comments="241" shares="250" />
+                <Post light={mode==='light'} profile={profilePic} name={name} date="20 May 2021" text="Fifth Post" pic={pic1} likes="10K" comments="2650" shares="5000" />
             </div>
             <Footer logout={()=>UserSignOut()} />
         </div>

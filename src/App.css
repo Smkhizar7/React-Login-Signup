@@ -12,9 +12,11 @@
 }
 .Dark{
 color: white;
-/* background-color: #18191a; */
-background-color: #2d2d2d;
-/* text-align: center; */
+background-color: #323232 !important;
+}
+
+h1 {
+  font-weight: 900;
 }
 .login-input {
   margin: 20px 10px;

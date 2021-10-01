@@ -4,17 +4,24 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import { Link, useHistory } from 'react-router-dom';
+import './Css/index.css';
+import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-export default function MenuAppBar({auth,title}) {
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+function MenuAppBar({auth,title,logout}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  let history = useHistory();
+  
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+  
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -25,22 +32,19 @@ export default function MenuAppBar({auth,title}) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" >
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title}
           </Typography>
-          {auth && (
+          {auth ? (
             <div>
+              <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+              <span className="name-box">
+                {auth.displayName}
+              </span>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -66,13 +70,58 @@ export default function MenuAppBar({auth,title}) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={()=>history.push("/profile")}>Profile</MenuItem>
+                <MenuItem onClick={()=>history.push("/contacts")}>Contacts</MenuItem>
+                <MenuItem onClick={()=>history.push("/chat")}>Chat</MenuItem>
+                <MenuItem onClick={logout}>Log Out</MenuItem>
               </Menu>
             </div>
-          )}
+          )
+          :
+          (
+            <div>
+               <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+              <Link to="/" className="link app-link">Login</Link>
+              <Link to="/signup" className="link app-link">Sign Up</Link>
+            </div>
+          )
+          }
         </Toolbar>
       </AppBar>
     </Box>
+  );
+}
+
+export default function ToggleColorMode({mode,setMode,...rest}) {
+  // const [mode, setMode] = React.useState('light');
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+  // React.useEffect(()=>
+  // onClick(mode)
+  // ,[mode])
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <MenuAppBar {...rest} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }

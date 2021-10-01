@@ -77,125 +77,125 @@ export default function VerticalTabs({className}) {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >
-        <Tab label="Item One" {...a11yProps(0)} className="tab" />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
-        <Tab label="Item Eight" {...a11yProps(7)} />
-        <Tab label="Item Nine" {...a11yProps(8)} />
-        <Tab label="Item Ten" {...a11yProps(9)} />
-        <Tab label="Item Eleven" {...a11yProps(10)} />
+        <Tab label="New Item One" {...a11yProps(0)} className="tab" />
+        <Tab label="Item Two" {...a11yProps(1)} className="tab" />
+        <Tab label="Item Three" {...a11yProps(2)} className="tab" />
+        <Tab label="Item Four" {...a11yProps(3)} className="tab" />
+        <Tab label="Item Five" {...a11yProps(4)} className="tab" />
+        <Tab label="Item Six" {...a11yProps(5)} className="tab" />
+        <Tab label="Item Seven" {...a11yProps(6)} className="tab" />
+        <Tab label="Item Eight" {...a11yProps(7)} className="tab" />
+        <Tab label="Item Nine" {...a11yProps(8)} className="tab" />
+        <Tab label="Item Ten" {...a11yProps(9)} className="tab" />
+        <Tab label="Item Eleven" {...a11yProps(10)} className="tab" />
       </Tabs>
       <TabPanel value={value} index={0} className="tab-panel">
-        <div className="heading">Item One</div>
-        <div className="msgs">
+        <span className="heading">Item One</span>
+        <span className="msgs">
         {chats.map((value,index)=>(
                 value.sender==="abc1"&&value.reciever==="xyz2"?
-                (<div className='current-user-msg' key={index}>
+                (<span className='current-user-msg' key={index}>
                     <img src={lock} alt="img" className="msg-icon" align="right" />
-                    <div className="current-sub-div">
+                    <span className="current-sub-div">
                         {value.msg}
-                    </div>
-                </div>)        
+                    </span>
+                </span>)        
                 :
                 (value.sender==="xyz2"&&value.reciever==="abc1"?
-                (<div className='other-user-msg' key={index}>
+                (<span className='other-user-msg' key={index}>
                     <img src={lock} alt="img" className="msg-icon" align="left" />
-                    <div className="other-sub-div">
+                    <span className="other-sub-div">
                         {value.msg}
-                    </div>
-                </div>):null)
+                    </span>
+                </span>):null)
         ))
         }
-        </div>
-        <div className="input-div">
+        </span>
+        <span className="input-div">
             <input type="text" className="input-field" />
             <Button className="send-btn">Send</Button>
-        </div>
+        </span>
       </TabPanel>
       <TabPanel value={value} index={1} className="tab-panel">
-      <div className="heading">Item One</div>
-      <div className="msgs">
-        {chats.map((value,index)=>(
-                value.sender==="abc2"&&value.reciever==="xyz2"?
-                (<div className='current-user-msg' key={index}>
-                    <img src={lock} alt="img" className="msg-icon" align="right" />
-                    <div className="current-sub-div">
-                        {value.msg}
-                    </div>
-                </div>)        
-                :
-                (value.sender==="xyz2"&&value.reciever==="abc2"?
-                (<div className='other-user-msg' key={index}>
-                    <img src={lock} alt className="msg-icon" align="left" />
-                    <div className="other-sub-div">
-                        {value.msg}
-                    </div>
-                </div>):null)
-        ))
-        }
-        </div>
-        <div className="input-div">
-            <input type="text" className="input-field" />
-            <Button className="send-btn">Send</Button>
-        </div>
-      </TabPanel>
-      <TabPanel value={value} index={2} className="tab-panel">
-      <div className="heading">Item One</div>
-      <div className="msgs">
-        {chats.map((value,index)=>(
-                value.sender==="abc3"&&value.reciever==="xyz2"?
-                (<div className='current-user-msg' key={index}>
-                    <img src={lock} alt className="msg-icon" align="right" />
-                    <div className="current-sub-div">
-                        {value.msg}
-                    </div>
-                </div>)        
-                :
-                (value.sender==="xyz2"&&value.reciever==="abc3"?
-                (<div className='other-user-msg' key={index}>
-                    <img src={lock} alt className="msg-icon" align="left" />
-                    <div className="other-sub-div">
-                        {value.msg}
-                    </div>
-                </div>):null)
-        ))
-        }
-        </div>
-        <div className="input-div">
-            <input type="text" className="input-field" />
-            <Button className="send-btn">Send</Button>
-        </div>
-      </TabPanel>
-      <TabPanel value={value} index={3} className="tab-panel">
-      <div className="heading">Item One</div>
-      <div className="msgs">
+      <span className="heading">Item One</span>
+        <span className="msgs">
         {chats.map((value,index)=>(
                 value.sender==="abc1"&&value.reciever==="xyz2"?
-                (<div className='current-user-msg' key={index}>
-                    <img src={lock} alt className="msg-icon" align="right" />
-                    <div className="current-sub-div">
+                (<span className='current-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="right" />
+                    <span className="current-sub-div">
                         {value.msg}
-                    </div>
-                </div>)        
+                    </span>
+                </span>)        
                 :
                 (value.sender==="xyz2"&&value.reciever==="abc1"?
-                (<div className='other-user-msg' key={index}>
-                    <img src={lock} alt className="msg-icon" align="left" />
-                    <div className="other-sub-div">
+                (<span className='other-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="left" />
+                    <span className="other-sub-div">
                         {value.msg}
-                    </div>
-                </div>):null)
+                    </span>
+                </span>):null)
         ))
         }
-        </div>
-        <div className="input-div">
+        </span>
+        <span className="input-div">
             <input type="text" className="input-field" />
             <Button className="send-btn">Send</Button>
-        </div>
+        </span>
+      </TabPanel>
+      <TabPanel value={value} index={2} className="tab-panel">
+      <span className="heading">Item One</span>
+        <span className="msgs">
+        {chats.map((value,index)=>(
+                value.sender==="abc1"&&value.reciever==="xyz2"?
+                (<span className='current-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="right" />
+                    <span className="current-sub-div">
+                        {value.msg}
+                    </span>
+                </span>)        
+                :
+                (value.sender==="xyz2"&&value.reciever==="abc1"?
+                (<span className='other-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="left" />
+                    <span className="other-sub-div">
+                        {value.msg}
+                    </span>
+                </span>):null)
+        ))
+        }
+        </span>
+        <span className="input-div">
+            <input type="text" className="input-field" />
+            <Button className="send-btn">Send</Button>
+        </span>
+      </TabPanel>
+      <TabPanel value={value} index={3} className="tab-panel">
+      <span className="heading">Item One</span>
+        <span className="msgs">
+        {chats.map((value,index)=>(
+                value.sender==="abc1"&&value.reciever==="xyz2"?
+                (<span className='current-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="right" />
+                    <span className="current-sub-div">
+                        {value.msg}
+                    </span>
+                </span>)        
+                :
+                (value.sender==="xyz2"&&value.reciever==="abc1"?
+                (<span className='other-user-msg' key={index}>
+                    <img src={lock} alt="img" className="msg-icon" align="left" />
+                    <span className="other-sub-div">
+                        {value.msg}
+                    </span>
+                </span>):null)
+        ))
+        }
+        </span>
+        <span className="input-div">
+            <input type="text" className="input-field" />
+            <Button className="send-btn">Send</Button>
+        </span>
       </TabPanel>
       <TabPanel value={value} index={4} className="tab-panel">
       <div className="heading">Item One</div>

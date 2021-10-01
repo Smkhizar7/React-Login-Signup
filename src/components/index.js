@@ -4,5 +4,5 @@ import BasicTextFields from './Input';
 import Button from './Button';
 import Post from './Post';
 import VerticalTabs from './VerticalTabs';
-import MenuAppBar from './AppBar';
-export {Nav,Post,Footer,BasicTextFields,Button,VerticalTabs,MenuAppBar};
+import ToggleColorMode from './AppBar';
+export {Nav,Post,Footer,BasicTextFields,Button,VerticalTabs,ToggleColorMode};

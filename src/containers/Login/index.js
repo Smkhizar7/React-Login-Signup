@@ -1,5 +1,5 @@
 import './Css/index.css';
-import {Button,BasicTextFields,Nav,Footer} from '../../components';
+import {Button,BasicTextFields,ToggleColorMode,Footer} from '../../components';
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
@@ -8,8 +8,9 @@ import lock from '../../assests/images/lock.png'
 import { Formik } from 'formik';
 
 function Login(){
+    let user = auth.currentUser;
+    const [mode, setMode] = useState('light');
     const [loading, setLoading] = useState(false);
-    const [light,setLight] = useState(true);
     function UserSignIn({email,password}){
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
@@ -26,8 +27,8 @@ function Login(){
         });
     }
     return (
-        <div className={light?"Light Login":"Dark Login"}>
-            <Nav onClick={()=>setLight(!light)} light={light}/>
+        <div className={mode==='light'?"Light Login":"Dark Login"}>
+            <ToggleColorMode auth={user} mode={mode} setMode={setMode} title="Login" />
             <Grid container
             direction="column"
             justifyContent="center"

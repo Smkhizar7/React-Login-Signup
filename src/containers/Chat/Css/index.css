@@ -3,5 +3,8 @@
 }
 
 .Chat-content {
-    min-height: 75vh;
+    min-height: 89vh;
+}
+.Chat.container-fluid {
+    height: 100vh;
 }

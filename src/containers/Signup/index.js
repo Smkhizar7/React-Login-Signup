@@ -1,11 +1,13 @@
 import './Css/index.css';
-import {Button,BasicTextFields,Nav,Footer} from '../../components';
+import {Button,BasicTextFields,ToggleColorMode,Footer} from '../../components';
 import * as React from 'react';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { Formik } from 'formik';
 import {auth,updateProfile,createUserWithEmailAndPassword,db,doc,setDoc} from '../../config/Firebase';
 function Signup(){
+    let user = auth.currentUser;
+    const [mode, setMode] = useState('light');
     const [loading, setLoading] = useState(false);
     const [light,setLight] = useState(true);
     async function UserSignup({fname,lname,email,password}){
@@ -43,8 +45,9 @@ function Signup(){
         });
     }
     return (
-        <div className={light?"Light Signup":"Dark Signup"}>
-            <Nav onClick={()=>setLight(!light)} light={light} />
+        <div className={mode==="light"?"Light Signup":"Dark Signup"}>
+            <ToggleColorMode auth={user} mode={mode} setMode={setMode} title="Sign Up" />
+            {/* <Nav onClick={()=>setLight(!light)} light={light} /> */}
             <Grid container
             direction="column"
             justifyContent="center"
